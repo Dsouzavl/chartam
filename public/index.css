@@ -1,0 +1,21 @@
+.code {    
+    word-break: break-all;
+    font-family: 'Dosis', sans-serif;
+    background-color: #f6f6f5;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 24px;
+}
+
+.code:hover {
+    border-left: solid 5px rgba(66,184,131,.7);
+}
+
+.code:focus {
+    border-left: solid 8px rgba(66,184,131,.7);
+}
+
+.code:empty:before {
+    content:attr(data-placeholder);
+    color:gray
+  }

@@ -4,27 +4,52 @@
 */
 var segment = Vue.component('segment', {
     template: `
-        <h4>segment</h4>
-    `
+        <div >
+            <div 
+                class="code"
+                contenteditable="true"
+                data-placeholder="code here..."
+            ></div>
+        </div>
+    `,
+    data(){
+        return {
+            
+        }
+    }
 })
 
+// show playbook by account
+var playbook = Vue.component('playbook', {
+    template: `
+        <div>
+            <h4>playbook</h4>
+            <segment></segment>
+        </div>
+    `,
+    components: {
+        segment
+    }
+})
+
+// on click in playbook name, show this playbook segment
 var playbooks = Vue.component('playbooks', {
     template: `
         <div class="sm-4 col">
             <h2>Your Playbooks</h2>
-            <segment 
-                v-for="(index,segment) in segments"
+            <playbook
+                v-for="(index,playbook) in count"
                 :key=index
-            ></segment>
+            ></playbook>
         </div>
     `,
     data() {
         return {
-            segments: 5
+            count: 5
         }
     },
     components: {
-        segment
+        playbook
     }
 })
 
